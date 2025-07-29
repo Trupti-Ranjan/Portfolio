@@ -1,0 +1,42 @@
+# Ignore node_modules (dependencies)
+node_modules
+
+# Ignore build output folders
+build
+dist
+.out
+.next
+
+# Ignore coverage reports
+coverage
+
+# Ignore log files
+*.log
+
+# Ignore environment files
+.env
+.env.* 
+
+# Ignore lock files (optional, Prettier won't format them anyway)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore public assets
+public/**/*
+
+# Ignore specific config files
+*.config.js
+*.config.cjs
+*.config.mjs
+*.config.ts
+
+# Ignore compiled or cache files
+*.min.js
+*.min.css
+.cache
+turbo
+
+# Ignore any specific files/folders you don’t want Prettier to touch
+# For example, if you generate code in a folder:
+generated/
