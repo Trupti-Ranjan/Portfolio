@@ -26,12 +26,11 @@ export const useSmoothScroll = () => {
 
     // Make sure ScrollTrigger uses Lenis as the scroller
     ScrollTrigger.defaults({
-      scroller: document.body // Or your main scroll container if not body
+      scroller: document.body, // Or your main scroll container if not body
     });
-    
+
     // Refresh ScrollTrigger after Lenis initializes to re-calculate positions
     ScrollTrigger.refresh();
-
 
     // Cleanup function
     return () => {
@@ -40,7 +39,7 @@ export const useSmoothScroll = () => {
         lenis.raf(time * 1000);
       });
       // Optional: If you changed ScrollTrigger defaults globally, you might want to reset them
-      // ScrollTrigger.defaults({ scroller: window }); 
+      // ScrollTrigger.defaults({ scroller: window });
     };
   }, []); // Empty dependency array ensures this runs only once on mount
 };
