@@ -10,71 +10,90 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="relative flex h-[61px] items-center justify-between px-4 pt-8 md:px-[171px]">
-      <a href="#" className="flex h-5 items-center gap-2">
-        <img className="h-4" src={Logo} alt="Logo" />
-        <h1 className="font-bold text-white">Trupti</h1>
-      </a>
-
-      {/* Desktop Menu */}
-      <div className="hidden h-5 items-center gap-8 md:flex">
-        <a href="#" className="text-white">
-          <span className="text-primary">#</span>home
-        </a>
-        <a href="#" className="text-gray">
-          <span className="text-primary">#</span>works
-        </a>
-        <a href="#" className="text-gray">
-          <span className="text-primary">#</span>about-me
-        </a>
-        <a href="#" className="text-gray">
-          <span className="text-primary">#</span>contacts
-        </a>
-      </div>
-
-      <button
-        // className="flex md:hidden z-50"
-        className={`flex transition-transform duration-300 md:hidden z-50${
-          menuOpen ? 'rotate-90' : ''
-        }`}
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <img
-          src={menuOpen ? Cross : Toggle}
-          alt="menu toggle"
-          className="h-6 w-6 transition-transform duration-300"
-        />
-      </button>
-
-      {menuOpen && (
-        <div className="bg-background absolute top-[95px] left-0 z-40 flex w-full flex-col items-start gap-8 px-4 py-6 md:hidden">
-          <a href="#" className="text-[32px] text-white">
-            <span className="text-primary">#</span>home
-          </a>
-          <a href="#" className="text-gray text-[32px]">
-            <span className="text-primary">#</span>works
-          </a>
-          <a href="#" className="text-gray text-[32px]">
-            <span className="text-primary">#</span>about-me
-          </a>
-          <a href="#" className="text-gray text-[32px]">
-            <span className="text-primary">#</span>contacts
-          </a>
-
-          <div className="mt-[88px] flex w-full justify-center gap-6">
+    <nav className='sticky'>
+      {!menuOpen && (
+        <div className="hidden h-[310px] w-8 items-center gap-4 md:absolute md:left-[17px] md:flex md:flex-col">
+          <div className="h-[191px] w-[1px] bg-gray"></div>
+          <div className='flex flex-col gap-3 justify-center items-center'>
             <a href="#">
-              <Github />
+              <Github className="h-5 w-5" />
             </a>
             <a href="#">
-              <Gmail />
+              <Gmail className="h-5 w-5" />
             </a>
             <a href="#">
-              <Linkedin />
+              <Linkedin className="h-5 w-5" />
             </a>
           </div>
         </div>
       )}
-    </div>
+
+      <div className="relative flex h-[61px] items-center justify-between px-4 pt-8 md:px-[171px]">
+        <a href="#" className="flex h-5 items-center gap-2">
+          <img className="h-4" src={Logo} alt="Logo" />
+          <h1 className="font-bold text-white">Trupti</h1>
+        </a>
+
+        {/* Desktop Menu */}
+        <div className="hidden h-5 items-center gap-8 md:flex">
+          <a href="#" className="text-white">
+            <span className="text-primary">#</span>home
+          </a>
+          <a href="#" className="text-gray">
+            <span className="text-primary">#</span>works
+          </a>
+          <a href="#" className="text-gray">
+            <span className="text-primary">#</span>about-me
+          </a>
+          <a href="#" className="text-gray">
+            <span className="text-primary">#</span>contacts
+          </a>
+        </div>
+
+        <button
+          // className="flex md:hidden z-50"
+          className={`flex transition-transform duration-300 md:hidden z-50${
+            menuOpen ? 'rotate-90' : ''
+          }`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <img
+            src={menuOpen ? Cross : Toggle}
+            alt="menu toggle"
+            className="h-6 w-6 transition-transform duration-300"
+          />
+        </button>
+
+        {menuOpen && (
+          <div className="bg-background absolute top-[95px] left-0 z-40 flex w-full flex-col items-start gap-8 px-4 py-6 md:hidden">
+            <a href="#" className="text-[32px] text-white">
+              <span className="text-primary">#</span>home
+            </a>
+            <a href="#" className="text-gray text-[32px]">
+              <span className="text-primary">#</span>works
+            </a>
+            <a href="#" className="text-gray text-[32px]">
+              <span className="text-primary">#</span>about-me
+            </a>
+            <a href="#" className="text-gray text-[32px]">
+              <span className="text-primary">#</span>contacts
+            </a>
+
+            <div className="mt-[88px] flex w-full justify-center gap-6">
+              <a href="#">
+                <Github />
+              </a>
+              <a href="#">
+                <Gmail />
+              </a>
+              <a href="#">
+                <Linkedin />
+              </a>
+            </div>
+          </div>
+        )}
+      </div>
+    </nav>
   );
 };
 
