@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
-import Navbar from './components/Navbar';
+import AllComponents from './components/AllComponents';
 
 const App = () => {
   useSmoothScroll();
   return (
-    <div className="bg-background h-screen font-fira">
-      <Navbar />
+    <div className='h-screen bg-background'>
+      <AllComponents />
     </div>
   );
 };
