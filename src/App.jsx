@@ -5,9 +5,9 @@ import AllComponents from './components/AllComponents';
 const App = () => {
   useSmoothScroll();
   return (
-    <div className='h-screen bg-background'>
+    <>
       <AllComponents />
-    </div>
+    </>
   );
 };
 

@@ -1,12 +1,14 @@
 import React from 'react';
 import Navbar from './Navbar';
 import HeroSection from './HeroSection';
+import Cursor from './Cursor';
 
 const AllComponents = () => {
   return (
-    <div className="bg-background font-fira min-h-screen">
+    <div className="bg-background font-fira hide-scrollbar min-h-screen">
+      <Cursor />
       <Navbar />
-      <div className="md:flex md:flex-col md:items-center md:max-w-[1200px] mx-auto pt-[60px] p-4 md:px-0">
+      <div className="mx-auto p-4 pt-[60px] md:flex md:max-w-[1200px] md:flex-col md:items-center md:px-0">
         <HeroSection />
       </div>
     </div>

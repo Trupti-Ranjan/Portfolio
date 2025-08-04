@@ -2,37 +2,35 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
 const Dot4X4 = () => {
-  // Use a ref to target the main container
+  
   const containerRef = useRef(null);
 
   useEffect(() => {
-    // We create a GSAP context to manage the animations.
-    // This is a best practice for clean-up and a common pattern with React.
+
     const ctx = gsap.context(() => {
-      // Create a timeline for sequencing the animations
       const tl = gsap.timeline({ repeat: -1, yoyo: true });
 
-      // Use a GSAP selector to target all the dots inside our ref'd container
+      
       const dots = gsap.utils.toArray('.dot');
 
-      // Animate the dots
+      
       tl.to(dots, {
         scale: 1.5,
         stagger: {
-          each: 0.1, // Stagger the animation of each dot
-          from: "random" // Make the animation start from a random dot
+          each: 0.1, 
+          from: "random" 
         },
         duration: 0.5,
         ease: "power2.inOut",
-        backgroundColor: "#C778DD" // Example: change color on hover (or a lighter gray)
+        backgroundColor: "#C778DD" 
       });
       
-    }, containerRef); // <- The context is scoped to this ref
+    }, containerRef); 
 
-    // Return a clean-up function that reverts the context
+    
     return () => ctx.revert();
     
-  }, []); // Empty dependency array ensures this effect runs only once after the initial render
+  }, []); 
 
   return (
     <div ref={containerRef} className='flex flex-col gap-[21px]'>

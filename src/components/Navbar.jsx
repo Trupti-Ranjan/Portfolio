@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { gsap } from 'gsap';
+import { useGSAP } from '@gsap/react';
 import Logo from '../assets/Logo.svg';
 import Toggle from '../assets/Toggle.svg';
 import Cross from '../assets/Cross.svg';
@@ -8,27 +10,101 @@ import Linkedin from '../assets/icons/Linkedin';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const mobileMenuRef = useRef(null);
+  const button = useRef();
+  const animation = useRef(); // Store the animation
+  const [paused, setPaused] = useState(false); // For click toggle
+
+  useGSAP(() => {
+    animation.current = gsap.fromTo(
+      button.current,
+      { x: 0 },
+      { x: 30, duration: 1, repeat: -1, yoyo: true, ease: 'power1.inOut' }
+    );
+  }, []);
+
+  const handleMouseEnter = () => animation.current.pause();
+  const handleMouseLeave = () => animation.current.resume();
+
+  const handleClick = () => {
+    if (paused) {
+      animation.current.resume();
+    } else {
+      animation.current.pause();
+    }
+    setPaused(!paused);
+  };
+
+  useGSAP(() => {
+    if (menuOpen) {
+      gsap.set(mobileMenuRef.current, { display: 'flex' });
+      gsap.fromTo(
+        mobileMenuRef.current,
+        { x: '100%' },
+        { x: 0, duration: 1, ease: 'power3.out' }
+      );
+    } else {
+      gsap.to(mobileMenuRef.current, {
+        x: '100%',
+        duration: 0.8,
+        ease: 'power3.in',
+        onComplete: () => {
+          gsap.set(mobileMenuRef.current, { display: 'none' });
+        },
+      });
+    }
+  }, [menuOpen]);
+
+  useGSAP(() => {
+    var tl = gsap.timeline();
+    tl.from('.line', {
+      y: -300,
+      duration: 1,
+      ease: 'power1.in',
+    });
+
+    tl.from('.link1', {
+      y: -300,
+      duration: 1.5,
+      ease: 'bounce.out',
+      scale: 0,
+    });
+
+    tl.from('.link2', {
+      y: -300,
+      duration: 1.5,
+      ease: 'bounce.out',
+      scale: 0,
+    });
+
+    tl.from('.link3', {
+      y: -300,
+      duration: 1.5,
+      ease: 'bounce.out',
+      scale: 0,
+    });
+  });
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-background">
+    <nav className="bg-background fixed top-0 left-0 z-20 w-full">
       {!menuOpen && (
         <div className="hidden h-[310px] w-8 items-center gap-4 md:absolute md:left-[17px] md:flex md:flex-col">
-          <div className="bg-gray h-[191px] w-[1px]"></div>
+          <div className="bg-gray line h-[191px] w-[1px]"></div>
           <div className="flex flex-col items-center justify-center gap-3">
-            <a href="#">
+            <a href="#" className="link1">
               <Github className="h-5 w-5" />
             </a>
-            <a href="#">
+            <a href="#" className="link2">
               <Gmail className="h-5 w-5" />
             </a>
-            <a href="#">
+            <a href="#" className="link3">
               <Linkedin className="h-5 w-5" />
             </a>
           </div>
         </div>
       )}
 
-      <div className='md:flex md:justify-center'>
+      <div className="md:flex md:justify-center">
         <div className="relative flex h-[61px] items-center justify-between px-4 pt-8 md:w-[1224px]">
           <a href="#" className="flex h-5 items-center gap-2">
             <img className="h-4" src={Logo} alt="Logo" />
@@ -49,50 +125,78 @@ const Navbar = () => {
             <a href="#" className="text-gray">
               <span className="text-primary">#</span>contacts
             </a>
+            <a
+              ref={button}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onClick={handleClick}
+              href="#"
+              className="inline-block border border-white p-[1.5px]"
+            >
+              <div className="bg-primary text-background px-6 py-1.5 font-semibold">
+                Download CV
+              </div>
+            </a>
           </div>
 
+          {/* Toggle Button */}
           <button
-            // className="flex md:hidden z-50"
-            className={`flex transition-transform duration-300 md:hidden z-50${
-              menuOpen ? 'rotate-90' : ''
-            }`}
+            className="relative z-50 flex h-6 w-6 items-center justify-center md:hidden"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <img
-              src={menuOpen ? Cross : Toggle}
-              alt="menu toggle"
-              className="h-6 w-6 transition-transform duration-300"
+              src={Toggle}
+              alt="open menu"
+              className={`absolute h-6 w-6 transition-all duration-500 ease-in-out ${
+                menuOpen
+                  ? 'scale-50 rotate-90 opacity-0'
+                  : 'scale-100 rotate-0 opacity-100'
+              }`}
+            />
+
+            <img
+              src={Cross}
+              alt="close menu"
+              className={`absolute h-6 w-6 transition-all duration-500 ease-in-out ${
+                menuOpen
+                  ? 'scale-100 rotate-0 opacity-100'
+                  : 'scale-50 rotate-90 opacity-0'
+              }`}
             />
           </button>
 
-          {menuOpen && (
-            <div className="bg-background absolute top-[60px] pt-6 left-0 z-40 flex w-full h-screen flex-col items-start gap-8 px-4 py-6 md:hidden">
-              <a href="#" className="text-[32px] text-white mt-10">
-                <span className="text-primary">#</span>home
+          {/* Mobile Menu (not conditionally rendered because od gsap) */}
+          <div
+            ref={mobileMenuRef}
+            className="bg-background absolute top-[60px] left-0 z-40 hidden h-screen w-full flex-col items-start gap-8 px-4 py-6 pt-6 md:hidden"
+          >
+            <a href="#" className="mt-10 text-[32px] text-white">
+              <span className="text-primary">#</span>home
+            </a>
+            <a href="#" className="text-gray text-[32px]">
+              <span className="text-primary">#</span>works
+            </a>
+            <a href="#" className="text-gray text-[32px]">
+              <span className="text-primary">#</span>about-me
+            </a>
+            <a href="#" className="text-gray text-[32px]">
+              <span className="text-primary">#</span>contacts
+            </a>
+            <a href="#" className="text-gray text-[32px]">
+              <span className="text-primary">#</span>Download CV
+            </a>
+            <div className="mt-[48px] flex w-full justify-center gap-6">
+              <a href="#">
+                <Github />
               </a>
-              <a href="#" className="text-gray text-[32px]">
-                <span className="text-primary">#</span>works
+              <a href="#">
+                <Gmail />
               </a>
-              <a href="#" className="text-gray text-[32px]">
-                <span className="text-primary">#</span>about-me
+              <a href="#">
+                <Linkedin />
               </a>
-              <a href="#" className="text-gray text-[32px]">
-                <span className="text-primary">#</span>contacts
-              </a>
-
-              <div className="mt-[88px] flex w-full justify-center gap-6">
-                <a href="#">
-                  <Github />
-                </a>
-                <a href="#">
-                  <Gmail />
-                </a>
-                <a href="#">
-                  <Linkedin />
-                </a>
-              </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </nav>

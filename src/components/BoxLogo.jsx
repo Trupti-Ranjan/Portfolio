@@ -1,197 +1,56 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
-const BoxLogo = () => {
+const Logo = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const staggerConfig = {
-        each: 0.05,
-        from: 'start',
-      };
+      // Create a GSAP Timeline that repeats indefinitely
+      const tl = gsap.timeline({ repeat: -1 });
 
-      const tl = gsap.timeline({
-        repeat: -1,
-        yoyo: true,
-        ease: 'power1.inOut',
+      const duration = 0.5; // Duration of the border rotation
+      const pause = 2; // Duration of the pause in seconds
+      const stagger = { each: 0.05, from: "start" };
+      
+      const allBoxes = [
+        ".box-1-1", ".box-1-2", ".box-1-3", ".box-1-4",
+        ".box-2-1", ".box-2-2", ".box-2-3", ".box-2-4",
+        ".box-3-1", ".box-3-2", ".box-3-3", ".box-3-4",
+        ".box-4-1", ".box-4-2", ".box-4-3", ".box-4-4"
+      ];
+
+      // Step 1: Pause after the initial logo appears
+      tl.to({}, { duration: pause });
+
+      // Step 2: Animate from the initial state to the "rotated" state
+      tl.to(allBoxes, {
+        duration: duration,
+        stagger: stagger,
+        ease: "power1.inOut",
+        borderTopWidth: 1,
+        borderRightWidth: 1,
+        borderBottomWidth: 1,
+        borderLeftWidth: 1
       });
 
-      tl.to(
-        '.box-1-1',
-        { duration: 0.5, borderLeftWidth: 1, borderBottomWidth: 0 },
-        0
-      )
-        .to(
-          '.box-1-2',
-          {
-            duration: 0.5,
-            borderLeftWidth: 1,
-            borderTopWidth: 0,
-            borderBottomWidth: 0,
-            borderRightWidth: 0,
-          },
-          0.05
-        )
-        .to(
-          '.box-1-3',
-          {
-            duration: 0.5,
-            borderRightWidth: 2,
-            borderBottomWidth: 2,
-            borderTopWidth: 0,
-            borderLeftWidth: 0,
-          },
-          0.1
-        )
-        .to(
-          '.box-1-4',
-          {
-            duration: 0.5,
-            borderRightWidth: 2,
-            borderBottomWidth: 2,
-            borderTopWidth: 0,
-            borderLeftWidth: 0,
-          },
-          0.15
-        );
+      // Step 3: Animate back to the initial state immediately after
+      tl.to(allBoxes, {
+        duration: duration,
+        stagger: stagger,
+        ease: "power1.inOut",
+        borderTopWidth: 0,
+        borderRightWidth: 0,
+        borderBottomWidth: 0,
+        borderLeftWidth: 0
+      });
 
-      tl.to(
-        '.box-2-1',
-        {
-          duration: 0.5,
-          borderTopWidth: 2,
-          borderRightWidth: 2,
-          borderBottomWidth: 0,
-          borderLeftWidth: 0,
-        },
-        0.2
-      )
-        .to(
-          '.box-2-2',
-          {
-            duration: 0.5,
-            borderTopWidth: 1,
-            borderRightWidth: 1,
-            borderBottomWidth: 1,
-            borderLeftWidth: 1,
-          },
-          0.25
-        )
-        .to(
-          '.box-2-3',
-          {
-            duration: 0.5,
-            borderRightWidth: 1,
-            borderBottomWidth: 1,
-            borderTopWidth: 1,
-            borderLeftWidth: 1,
-          },
-          0.3
-        )
-        .to(
-          '.box-2-4',
-          {
-            duration: 0.5,
-            borderRightWidth: 2,
-            borderBottomWidth: 0,
-            borderTopWidth: 0,
-            borderLeftWidth: 1,
-          },
-          0.35
-        );
+      // Step 4: Add another pause before the entire sequence repeats
+      tl.to({}, { duration: pause });
 
-      tl.to(
-        '.box-3-1',
-        {
-          duration: 0.5,
-          borderTopWidth: 0,
-          borderRightWidth: 2,
-          borderBottomWidth: 2,
-          borderLeftWidth: 2,
-        },
-        0.4
-      )
-        .to(
-          '.box-3-2',
-          {
-            duration: 0.5,
-            borderLeftWidth: 1,
-            borderTopWidth: 1,
-            borderRightWidth: 1,
-            borderBottomWidth: 1,
-          },
-          0.45
-        )
-        .to(
-          '.box-3-3',
-          {
-            duration: 0.5,
-            borderBottomWidth: 1,
-            borderTopWidth: 1,
-            borderLeftWidth: 1,
-            borderRightWidth: 1,
-          },
-          0.5
-        )
-        .to(
-          '.box-3-4',
-          {
-            duration: 0.5,
-            borderRightWidth: 2,
-            borderLeftWidth: 0,
-            borderTopWidth: 0,
-            borderBottomWidth: 0,
-          },
-          0.55
-        );
-
-      tl.to(
-        '.box-4-1',
-        {
-          duration: 0.5,
-          borderLeftWidth: 2,
-          borderTopWidth: 2,
-          borderRightWidth: 0,
-          borderBottomWidth: 0,
-        },
-        0.6
-      )
-        .to(
-          '.box-4-2',
-          {
-            duration: 0.5,
-            borderTopWidth: 2,
-            borderRightWidth: 1,
-            borderBottomWidth: 0,
-            borderLeftWidth: 0,
-          },
-          0.65
-        )
-        .to(
-          '.box-4-3',
-          {
-            duration: 0.5,
-            borderLeftWidth: 1,
-            borderTopWidth: 0,
-            borderBottomWidth: 0,
-            borderRightWidth: 0,
-          },
-          0.7
-        )
-        .to(
-          '.box-4-4',
-          {
-            duration: 0.5,
-            borderLeftWidth: 0,
-            borderTopWidth: 0,
-            borderBottomWidth: 1,
-            borderRightWidth: 0,
-          },
-          0.75
-        );
     }, containerRef);
 
+    // Clean up the animation when the component unmounts
     return () => ctx.revert();
   }, []);
 
@@ -225,4 +84,4 @@ const BoxLogo = () => {
   );
 };
 
-export default BoxLogo;
+export default Logo;
