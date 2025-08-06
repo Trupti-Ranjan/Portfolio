@@ -12,77 +12,59 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const mobileMenuRef = useRef(null);
   const button = useRef();
-  const animation = useRef(); // Store the animation
-  const [paused, setPaused] = useState(false); // For click toggle
 
   useGSAP(() => {
-    animation.current = gsap.fromTo(
+    const animation = gsap.fromTo(
       button.current,
       { x: 0 },
       { x: 30, duration: 1, repeat: -1, yoyo: true, ease: 'power1.inOut' }
     );
+    return () => animation.kill();
   }, []);
 
-  const handleMouseEnter = () => animation.current.pause();
-  const handleMouseLeave = () => animation.current.resume();
-
-  const handleClick = () => {
-    if (paused) {
-      animation.current.resume();
-    } else {
-      animation.current.pause();
-    }
-    setPaused(!paused);
-  };
-
   useGSAP(() => {
-    if (menuOpen) {
-      gsap.set(mobileMenuRef.current, { display: 'flex' });
-      gsap.fromTo(
-        mobileMenuRef.current,
-        { x: '100%' },
-        { x: 0, duration: 1, ease: 'power3.out' }
-      );
-    } else {
-      gsap.to(mobileMenuRef.current, {
-        x: '100%',
-        duration: 0.8,
-        ease: 'power3.in',
-        onComplete: () => {
-          gsap.set(mobileMenuRef.current, { display: 'none' });
-        },
-      });
-    }
+    const ctx = gsap.context(() => {
+      if (menuOpen) {
+        gsap.set(mobileMenuRef.current, { display: 'flex' });
+        gsap.fromTo(
+          mobileMenuRef.current,
+          { x: '100%' },
+          { x: 0, duration: 1, ease: 'power3.out' }
+        );
+      } else {
+        gsap.to(mobileMenuRef.current, {
+          x: '100%',
+          duration: 0.8,
+          ease: 'power3.in',
+          onComplete: () => {
+            gsap.set(mobileMenuRef.current, { display: 'none' });
+          },
+        });
+      }
+    });
+
+    return () => ctx.revert();
   }, [menuOpen]);
 
   useGSAP(() => {
-    var tl = gsap.timeline();
-    tl.from('.line', {
-      y: -300,
-      duration: 1,
-      ease: 'power1.in',
+    const context = gsap.context(() => {
+      var tl = gsap.timeline();
+      tl.from('.line', {
+        y: -300,
+        duration: 1,
+        ease: 'power1.in',
+      });
+
+      tl.from('.link1', {
+        y: -300,
+        duration: 1,
+        ease: 'bounce.out',
+        scale: 0,
+        stagger: 0.2,
+      });
     });
 
-    tl.from('.link1', {
-      y: -300,
-      duration: 1.5,
-      ease: 'bounce.out',
-      scale: 0,
-    });
-
-    tl.from('.link2', {
-      y: -300,
-      duration: 1.5,
-      ease: 'bounce.out',
-      scale: 0,
-    });
-
-    tl.from('.link3', {
-      y: -300,
-      duration: 1.5,
-      ease: 'bounce.out',
-      scale: 0,
-    });
+    return () => context.revert();
   });
 
   return (
@@ -94,10 +76,10 @@ const Navbar = () => {
             <a href="#" className="link1">
               <Github className="h-5 w-5" />
             </a>
-            <a href="#" className="link2">
+            <a href="#" className="link1">
               <Gmail className="h-5 w-5" />
             </a>
-            <a href="#" className="link3">
+            <a href="#" className="link1">
               <Linkedin className="h-5 w-5" />
             </a>
           </div>
@@ -125,14 +107,7 @@ const Navbar = () => {
             <a href="#" className="text-gray">
               <span className="text-primary">#</span>contacts
             </a>
-            <a
-              ref={button}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              onClick={handleClick}
-              href="#"
-              className="inline-block border border-white p-[1.5px]"
-            >
+            <a href="#" className="inline-block border border-white p-[1.5px]">
               <div className="bg-primary text-background px-6 py-1.5 font-semibold">
                 Download CV
               </div>
