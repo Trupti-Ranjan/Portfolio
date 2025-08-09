@@ -48,7 +48,7 @@ const Cursor = () => {
   return (
     <div
       ref={cursorRef}
-      className="pointer-events-none fixed z-50 h-9 w-9 -top-4 -left-4 rounded-full border-2 border-primary"
+      className="pointer-events-none fixed z-50 h-7.5 w-7.5 -top-[14.5px] -left-[14.5px] rounded-full bg-primary"
     ></div>
   );
 };

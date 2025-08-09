@@ -68,7 +68,7 @@ const Navbar = () => {
   });
 
   return (
-    <nav className="bg-background fixed top-0 left-0 z-20 w-full">
+    <nav className="bg-background fixed -top-1 left-0 z-20 w-full">
       {!menuOpen && (
         <div className="hidden h-[310px] w-8 items-center gap-4 md:absolute md:left-[17px] md:flex md:flex-col">
           <div className="bg-gray line h-[191px] w-[1px]"></div>
@@ -87,7 +87,7 @@ const Navbar = () => {
       )}
 
       <div className="md:flex md:justify-center">
-        <div className="relative flex h-[61px] items-center justify-between px-4 pt-8 md:w-[1224px]">
+        <div className="relative flex h-[61px] sm:h-[101px] items-center justify-between px-4 pt-8 md:w-[1224px]">
           <a href="#" className="flex h-5 items-center gap-2">
             <img className="h-4" src={Logo} alt="Logo" />
             <h1 className="font-bold text-white">Trupti</h1>
