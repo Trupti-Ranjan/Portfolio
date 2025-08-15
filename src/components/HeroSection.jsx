@@ -7,7 +7,7 @@ import Square from './ui/Square';
 
 const HeroSection = () => {
   return (
-    <section className="mx-auto p-4 pt-[60px] sm:flex sm:max-w-[1200px] sm:flex-col sm:items-center sm:px-0">
+    <section className="mx-auto p-4 min-h-screen pt-[60px] sm:flex sm:max-w-[1200px] sm:flex-col sm:items-center sm:px-0">
       <div className="mt-20 flex w-full flex-col justify-center sm:flex-row sm:items-center sm:justify-between">
         {/* This is the left section of the herosection */}
         <div className="flex flex-col justify-between gap-6 sm:h-[230px] sm:w-[540px]">

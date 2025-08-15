@@ -14,7 +14,7 @@ const Projects = () => {
         </div>
 
         <a
-          href='#'
+          href="#"
           className="after:bg-primary relative text-white after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full"
         >
           View all ~~{'>'}

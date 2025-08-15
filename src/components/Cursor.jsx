@@ -35,7 +35,6 @@ const Cursor = () => {
       });
     });
 
-
     return () => {
       window.removeEventListener('mousemove', moveCursor);
       hoverTargets.forEach((el) => {
@@ -48,7 +47,7 @@ const Cursor = () => {
   return (
     <div
       ref={cursorRef}
-      className="pointer-events-none fixed z-50 h-7.5 w-7.5 -top-[14.5px] -left-[14.5px] rounded-full bg-primary"
+      className="border-primary pointer-events-none fixed -top-[14.5px] -left-[14.5px] z-50 hidden h-7.5 w-7.5 rounded-full border md:block"
     ></div>
   );
 };
