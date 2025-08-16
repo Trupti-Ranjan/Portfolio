@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Logo from '../assets/Logo.svg';
@@ -12,6 +12,22 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const mobileMenuRef = useRef(null);
   const button = useRef();
+
+  // ✅ Handle back button on mobile
+  useEffect(() => {
+    const handlePopState = () => {
+      setMenuOpen(false);
+    };
+
+    if (menuOpen) {
+      window.history.pushState({ menu: true }, "");
+      window.addEventListener("popstate", handlePopState);
+    }
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, [menuOpen]);
 
   useGSAP(() => {
     const animation = gsap.fromTo(
@@ -140,7 +156,7 @@ const Navbar = () => {
             />
           </button>
 
-          {/* Mobile Menu (not conditionally rendered because od gsap) */}
+          {/* Mobile Menu */}
           <div
             ref={mobileMenuRef}
             className="bg-background absolute top-[60px] left-0 z-40 hidden h-screen w-full flex-col items-start gap-8 px-4 py-6 pt-6 md:hidden"

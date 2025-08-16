@@ -1,5 +1,6 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
+import projectimage1 from '../../assets/images/project1.svg';
 
 const Projects = () => {
   return (
@@ -22,7 +23,14 @@ const Projects = () => {
       </div>
 
       {/* Project Card */}
-      <ProjectCard />
+      <ProjectCard
+        img={projectimage1}
+        techStack="HTML CSS JAVASCRIPT"
+        title="ChertNodes"
+        description="Minecraft servers hosting"
+        live={true}
+        cached={true}
+      />
     </section>
   );
 };

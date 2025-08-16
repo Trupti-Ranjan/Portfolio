@@ -77,7 +77,7 @@ const HeroSection = () => {
         </div>
 
         {/* Decorative: Square */}
-        <div className="">
+        <div className="absolute -bottom-4 -right-70 hidden sm:block">
           <Square width={91} />
         </div>
       </div>
