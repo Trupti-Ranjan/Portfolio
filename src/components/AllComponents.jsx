@@ -7,14 +7,14 @@ import Footer from './Footer';
 
 const AllComponents = () => {
   return (
-    <div className="bg-background font-fira hide-scrollbar min-h-screen overflow-hidden">
+    <div className="bg-background font-fira hide-scrollbar min-h-screen w-full overflow-x-hidden">
       {/* <Cursor /> */}
       <Navbar />
-      <div>
+      <main className="mx-auto max-w-[1300px] px-4 sm:px-6 lg:px-8">
         <HeroSection />
-        {/* <Projects /> */}
-        {/* <Footer /> */}
-      </div>
+        <Projects />
+        <Footer />
+      </main>
     </div>
   );
 };

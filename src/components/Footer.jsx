@@ -3,7 +3,7 @@ import Logo from '../assets/Logo.svg';
 const Footer = () => {
   return (
     <footer className="border-gray border-t">
-      <div className="h-[210px] sm:max-w-[1200px] md:mx-auto">
+      <div className="h-[210px] md:mx-auto">
         <div className='h-[144px] flex items-center '>
           <div>
             <a href="#" className="flex h-5 items-center gap-4">
