@@ -5,6 +5,7 @@ import HeroSection from './HeroSection';
 import Cursor from './Cursor';
 import Projects from './Projects/Projects';
 import Footer from './Footer';
+import Skills from './skills/Skills';
 
 const AllComponents = () => {
   const glowRef = useRef();
@@ -35,6 +36,7 @@ const AllComponents = () => {
       <main className="relative z-10 mx-auto max-w-[1300px] sm:px-6 lg:px-8">
         <HeroSection />
         <Projects />
+        <Skills />
       </main>
       <div className="relative z-10 w-full">
         <Footer />

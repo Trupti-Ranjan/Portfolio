@@ -2,8 +2,8 @@ import React from 'react';
 import heroImage from '../assets/heroImage.svg';
 import doublequoats from '../assets/images/doublequoats.svg';
 import Dot4X4 from './ui/Dot4X4';
-import BoxLogo from './ui/BoxLogo';
 import Square from './ui/Square';
+import BoxLogoAnimated from './ui/BoxLogoAnimated';
 
 const HeroSection = () => {
   return (
@@ -43,7 +43,7 @@ const HeroSection = () => {
 
           {/* Decorative: BoxLogo */}
           <div className="absolute top-20 left-0 h-[200px] sm:-left-4">
-            <BoxLogo />
+            <BoxLogoAnimated />
           </div>
 
           {/* Bottom Info Box */}

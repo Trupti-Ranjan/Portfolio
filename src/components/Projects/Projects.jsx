@@ -1,38 +1,9 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
-import projectimage1 from '../../assets/images/project1.svg';
-import projectimage2 from '../../assets/images/project2.svg';
-import projectimage3 from '../../assets/images/project3.svg';
 import Square from '../ui/Square';
+import projectsData from '../../data/data.js'; // adjust path as needed
 
 const Projects = () => {
-  const data = [
-    {
-      img: projectimage1,
-      techStack: 'HTML CSS JAVASCRIPT',
-      title: 'ChertNodes',
-      description: 'Minecraft servers hosting',
-      live: true,
-      cached: true,
-    },
-    {
-      img: projectimage2,
-      techStack: 'React Express Node.js HTML CSS',
-      title: 'ProtectX',
-      description: 'Discord anti-crash bot',
-      live: true,
-      cached: false,
-    },
-    {
-      img: projectimage3,
-      techStack: 'CSS Express Node.js',
-      title: 'Kahoot Answers Viewer',
-      description: 'Get answers to your kahoot quiz',
-      live: true,
-      cached: false,
-    },
-  ];
-
   return (
     <section className="relative mx-auto p-4 pt-[60px] sm:flex sm:max-w-[1200px] sm:flex-col sm:items-center sm:px-0">
       {/* Title of the projects section */}
@@ -53,7 +24,7 @@ const Projects = () => {
       </div>
 
       <div className="mt-10 flex flex-col flex-wrap items-start justify-between gap-7 md:w-full md:flex-row">
-        {data.map((project, index) => (
+        {projectsData.map((project, index) => (
           <ProjectCard
             key={index}
             img={project.img}
@@ -66,7 +37,7 @@ const Projects = () => {
         ))}
       </div>
 
-      <div className="absolute -right-64 top-70" >
+      <div className="absolute -right-64 top-70">
         <Square width={155} />
       </div>
     </section>
