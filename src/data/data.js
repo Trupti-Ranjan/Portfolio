@@ -20,7 +20,7 @@ const projectsData = [
     description: 'My work, skills & journey',
     live: true,
     cached: false,
-    livelink: "https://your-portfolio-link.com"
+    livelink: "https://portfolio-trupti-ranjans-projects.vercel.app/"
   },
   {
     img: projectimage3,
