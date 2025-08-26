@@ -2,18 +2,17 @@ import React from 'react';
 import heroImage from '../assets/heroImage.svg';
 import doublequoats from '../assets/images/doublequoats.svg';
 import Dot4X4 from './ui/Dot4X4';
-import BoxLogo from './ui/BoxLogo';
 import Square from './ui/Square';
+import BoxLogoAnimated from './ui/BoxLogoAnimated';
 
 const HeroSection = () => {
   return (
-    <section className="relative mx-auto min-h-screen overflow-x-hidden p-4 pt-[60px] sm:flex sm:max-w-[1200px] sm:flex-col sm:items-center sm:px-0">
+    <section id='home' className="relative mx-auto min-h-screen  p-4 pt-[60px] sm:flex sm:max-w-[1200px] sm:flex-col sm:items-center sm:px-0">
       {/* Main hero container */}
       <div className="mt-20 flex w-full flex-col justify-center sm:flex-row sm:items-center sm:justify-between">
-        
         {/* Left Section */}
         <div className="flex flex-col justify-between gap-6 sm:h-[230px] sm:w-[540px]">
-          <h1 className="text-3xl text-white sm:text-[32px]">
+          <h1 className="text-3xl text-white sm:text-[32px] font-semibold">
             Trupti is a <span className="text-primary">web designer</span> and{' '}
             <span className="text-primary">front-end developer</span>
           </h1>
@@ -21,12 +20,12 @@ const HeroSection = () => {
             He crafts responsive websites where technologies meet creativity
           </p>
 
-          <button className="group relative flex h-[3.5em] cursor-pointer items-center justify-start self-start overflow-hidden border border-gray px-4 pr-14 text-xs font-semibold uppercase tracking-wider text-white transition-all duration-[900ms] ease-[cubic-bezier(0.23,1,0.32,1)] hover:text-black">
-            <a href="#" className="hover-target z-10 px-4 text-[16px]">
+          <a href='#contact' className="group border-gray relative flex h-[3.5em] cursor-pointer items-center justify-start self-start overflow-hidden border px-4 pr-14 text-xs font-semibold tracking-wider text-white uppercase transition-all duration-[900ms] ease-[cubic-bezier(0.23,1,0.32,1)] hover:text-black">
+            <p className="hover-target z-10 px-4 text-[16px] font-medium">
               Contact me!!
-            </a>
-            <div className="absolute right-[0.1em] flex h-[3em] w-[3em] items-center justify-center bg-primary transition-all duration-[900ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:w-[calc(100%-0.3em)] group-active:scale-90"></div>
-          </button>
+            </p>
+            <div className="bg-primary absolute right-[0.1em] flex h-[3em] w-[3em] items-center justify-center transition-all duration-[900ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:w-[calc(100%-0.3em)] group-active:scale-90"></div>
+          </a>
         </div>
 
         {/* Right Section */}
@@ -43,14 +42,14 @@ const HeroSection = () => {
           </div>
 
           {/* Decorative: BoxLogo */}
-          <div className="absolute top-20 left-0 sm:-left-4 h-[200px]">
-            <BoxLogo />
+          <div className="absolute top-20 left-0 h-[200px] sm:-left-4">
+            <BoxLogoAnimated />
           </div>
 
           {/* Bottom Info Box */}
-          <div className="absolute bottom-3 left-2 flex w-[96%] max-w-[420px] items-center gap-3 border border-gray bg-black/40 p-2 sm:-bottom-[43px] sm:left-[17px] sm:w-[418px]">
-            <div className="h-4 w-4 bg-primary"></div>
-            <p className="text-[14px] font-medium text-gray sm:text-[16px]">
+          <div className="border-gray absolute bottom-3 left-2 flex w-[96%] max-w-[420px] items-center gap-3 border p-2 sm:-bottom-[43px] sm:left-[17px] sm:w-[418px]">
+            <div className="bg-primary h-4 w-4"></div>
+            <p className="text-gray text-[14px] sm:text-[16px] font-medium">
               Currently working on{' '}
               <span className="font-semibold text-white">Portfolio</span>
             </p>
@@ -59,10 +58,10 @@ const HeroSection = () => {
       </div>
 
       {/* Quote Section */}
-      <div className="relative mt-20 flex flex-col items-end justify-center sm:mt-32">
-        <div className="border border-gray p-8 relative">
+      <div className="mt-20 flex flex-col items-end justify-center sm:mt-32">
+        <div className="border-gray relative border p-8">
           <img src={doublequoats} alt="" className="absolute -top-4 left-3" />
-          <p className="text-xl text-white sm:text-2xl">
+          <p className="text-xl text-white sm:text-2xl font-medium">
             With great power comes great electricity bill
           </p>
           <img
@@ -72,14 +71,14 @@ const HeroSection = () => {
           />
         </div>
 
-        <div className="border border-gray border-t-0 p-4 relative">
-          <p className="text-xl text-white sm:text-2xl">- Dr. Who</p>
+        <div className="border-gray relative border border-t-0 p-4">
+          <p className="text-xl text-white sm:text-2xl font-medium">- Dr. Who</p>
         </div>
 
         {/* Decorative: Square */}
-        <div className="">
-          <Square width={91} />
-        </div>
+      </div>
+      <div className="absolute -right-44 top-[680px] ">
+        <Square width={91} />
       </div>
     </section>
   );

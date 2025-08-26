@@ -2,8 +2,10 @@ import React from 'react'
 
 const Square = ({ width }) => {
   return (
-    <div className={`w-[${width}px] h-[${width}px] border-[1px] border-gray`}>
-      
+    <div
+      style={{ width: `${width}px`, height: `${width}px` }}
+      className="border border-gray hidden md:block"
+    >
     </div>
   )
 }
