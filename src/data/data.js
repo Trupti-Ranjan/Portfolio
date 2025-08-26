@@ -1,23 +1,26 @@
-import projectimage1 from '../assets/images/project1.svg';
-import projectimage2 from '../assets/images/project2.svg';
+import projectimage1 from '../assets/images/Project One.webp'
+import projectimage2 from '../assets/images/project-portofolio.webp';
 import projectimage3 from '../assets/images/project3.svg';
 
 const projectsData = [
   {
     img: projectimage1,
-    techStack: 'HTML CSS JAVASCRIPT',
-    title: 'ChertNodes',
-    description: 'Minecraft servers hosting',
+    techStack: 'JAVASCRIPT REACT GSAP ',
+    title: 'Trinacria',
+    description: 'Modern UI with GSAP',
     live: true,
-    cached: true,
+    cached: false,
+    livelink: "https://animated-trnacria.vercel.app/",
+    cachedlink: ""
   },
   {
     img: projectimage2,
-    techStack: 'React Express Node.js HTML CSS',
-    title: 'ProtectX',
-    description: 'Discord anti-crash bot',
+    techStack: 'HTML TAILWIND REACT LENIS',
+    title: 'Portfolio',
+    description: 'My work, skills & journey',
     live: true,
     cached: false,
+    livelink: "https://your-portfolio-link.com"
   },
   {
     img: projectimage3,

@@ -5,11 +5,11 @@ import projectsData from '../../data/data.js'; // adjust path as needed
 
 const Projects = () => {
   return (
-    <section className="relative mx-auto p-4 pt-[60px] sm:flex sm:max-w-[1200px] sm:flex-col sm:items-center sm:px-0">
+    <section id='works' className="scroll-mt-20 relative mx-auto p-4 pt-[60px] sm:flex sm:max-w-[1200px] sm:flex-col sm:items-center sm:px-0">
       {/* Title of the projects section */}
       <div className="flex w-full items-start justify-center md:items-center md:justify-between">
         <div className="flex flex-col gap-5 md:flex-row md:items-center">
-          <h2 className="text-[28px] text-white md:text-[32px]">
+          <h2 className="text-[28px] font-medium text-white md:text-[32px]">
             <span className="text-primary">#</span>projects
           </h2>
           <div className="bg-primary h-[1px] w-[245px] md:w-[511px]"></div>
@@ -17,7 +17,7 @@ const Projects = () => {
 
         <a
           href="#"
-          className="after:bg-primary relative mt-2 text-white after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 hover:after:w-full focus:after:w-0 active:after:w-0 md:mt-0"
+          className="after:bg-primary font-medium relative mt-2 text-white after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 hover:after:w-full focus:after:w-0 active:after:w-0 md:mt-0"
         >
           View all ~~{'>'}
         </a>
@@ -33,11 +33,12 @@ const Projects = () => {
             description={project.description}
             live={project.live}
             cached={project.cached}
+            livelink={project.livelink}
           />
         ))}
       </div>
 
-      <div className="absolute -right-64 top-70">
+      <div className="absolute top-70 -right-64">
         <Square width={155} />
       </div>
     </section>

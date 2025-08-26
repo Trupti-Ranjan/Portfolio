@@ -4,11 +4,11 @@ import Dot5X5 from './ui/Dot5X5';
 
 const About = () => {
   return (
-    <section className="mx-auto mb-10 p-4 sm:flex sm:max-w-[1200px] sm:flex-col sm:px-0">
+    <section id='about' className="scroll-mt-38 mx-auto mb-16 p-4 sm:flex sm:max-w-[1200px] sm:flex-col sm:px-0">
       {/* Title Section of About */}
       <div className="mb-10 flex w-full flex-col items-start justify-center gap-5 md:flex-row md:items-center md:justify-start">
         <h2 className="text-[28px] text-white md:text-[32px]">
-          <span className="text-primary">#</span>about-me
+          <span className="text-primary font-medium">#</span>about-me
         </h2>
         <div className="bg-primary h-[1px] w-[240px] md:w-[239px]"></div>
       </div>
@@ -21,13 +21,13 @@ const About = () => {
             <br /> <br />
             I’m a{' '}
             <span className="text-primary font-semibold">
-              self-taught front-end developer {" "}
+              self-taught front-end developer{' '}
             </span>
             based in{' '}
             <span className="text-primary font-semibold">Odisha, India</span>. I
             can develop{' '}
             <span className="text-primary font-semibold">
-              responsive websites {" "}
+              responsive websites{' '}
             </span>
             from scratch and raise them into
             <span className="text-primary font-semibold">
@@ -52,7 +52,7 @@ const About = () => {
             .
           </p>
 
-          <button className="border-primary mt-8 border px-4 py-2 text-white hover:cursor-pointer">
+          <button className="border-primary mt-10 border px-4 py-2 font-medium text-white hover:cursor-pointer">
             Read More -{'>'}
           </button>
         </div>
@@ -63,7 +63,7 @@ const About = () => {
             loading="lazy"
             className="h-[300px] md:h-[480px]"
           />
-          <div className="bg-primary h-[1px] w-[200px] md:w-[360px]"></div>
+          <div className="bg-primary h-[1px] w-[220px] md:w-[360px]"></div>
           <span className="absolute top-1 left-16 md:top-16 md:left-3">
             <Dot5X5 />
           </span>

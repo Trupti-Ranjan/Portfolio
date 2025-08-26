@@ -28,16 +28,16 @@ const Skills = () => {
     },
   ];
   return (
-    <section className="mx-auto p-4 pt-[60px] sm:flex sm:max-w-[1200px] sm:flex-col sm:items-center sm:px-0 ">
+    <section className="mx-auto p-4 pt-[60px] sm:flex sm:max-w-[1200px] sm:flex-col sm:items-center sm:px-0">
       {/* Title Section of Skills */}
       <div className="mb-10 flex w-full flex-col items-start justify-center gap-5 md:flex-row md:items-center md:justify-start">
-        <h2 className="text-[28px] text-white md:text-[32px]">
+        <h2 className="text-[28px] font-medium text-white md:text-[32px]">
           <span className="text-primary">#</span>skills
         </h2>
         <div className="bg-primary h-[1px] w-[240px] md:w-[239px]"></div>
       </div>
 
-      <div className="flex h-[500px] md:h-[400px] w-full gap-16">
+      <div className="flex h-[500px] w-full gap-16 md:h-[400px]">
         <div className="relative hidden w-2/5 sm:block">
           <span className="absolute top-6 left-8">
             <Dot5X5 />

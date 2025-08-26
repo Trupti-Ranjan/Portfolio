@@ -5,7 +5,7 @@ import Logo from '../assets/Logo.svg';
 
 const Footer = () => {
   return (
-    <footer className="border-t border-gray md:w-full">
+    <footer className="border-t border-gray md:w-full mt-10">
       <div className="flex flex-col md:h-[210px] h-auto items-center justify-center md:mx-auto px-4 py-6">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start w-full max-w-[1200px] gap-8">
           
@@ -27,7 +27,7 @@ const Footer = () => {
 
           {/* Media Links */}
           <div className="flex flex-col items-center md:items-start gap-3">
-            <p className="text-[20px] text-white">Media</p>
+            <p className="text-[20px] text-white font-medium">Media</p>
             <div className="flex items-center gap-5">
               <a href="#"><Github className="h-5 w-5" /></a>
               <a href="#"><Gmail className="h-5 w-5" /></a>
@@ -38,7 +38,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="mt-6 text-gray text-center">
-          <p>© {new Date().getFullYear()} Trupti. All rights reserved.</p>
+          <p className='relative'><span className='font-medium absolute top-0.5 -left-4'>©</span> Copyright {new Date().getFullYear()} Made by Trupti</p>
         </div>
       </div>
     </footer>
