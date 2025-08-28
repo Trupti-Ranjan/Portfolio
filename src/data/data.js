@@ -4,16 +4,6 @@ import projectimage3 from '../assets/images/project3.svg';
 
 const projectsData = [
   {
-    img: projectimage1,
-    techStack: 'JAVASCRIPT REACT GSAP ',
-    title: 'Trinacria',
-    description: 'Modern UI with GSAP',
-    live: true,
-    cached: false,
-    livelink: "https://animated-trnacria.vercel.app/",
-    cachedlink: ""
-  },
-  {
     img: projectimage2,
     techStack: 'HTML TAILWIND REACT LENIS',
     title: 'Portfolio',
@@ -21,6 +11,16 @@ const projectsData = [
     live: true,
     cached: false,
     livelink: "https://portfolio-alpha-woad-g5nu3q8wmc.vercel.app/",
+    cachedlink: ""
+  },
+  {
+    img: projectimage1,
+    techStack: 'JAVASCRIPT REACT GSAP ',
+    title: 'Trinacria',
+    description: 'Modern UI with GSAP',
+    live: true,
+    cached: false,
+    livelink: "https://animated-trnacria.vercel.app/",
     cachedlink: ""
   },
   {

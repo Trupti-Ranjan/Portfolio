@@ -28,7 +28,7 @@ const Skills = () => {
     },
   ];
   return (
-    <section className="mx-auto p-4 pt-[60px] sm:flex sm:max-w-[1200px] sm:flex-col sm:items-center sm:px-0">
+    <section className="mx-auto mb-10 lg:mb-0 p-4 pt-[60px] sm:flex sm:max-w-[1200px] sm:flex-col sm:items-center sm:px-0">
       {/* Title Section of Skills */}
       <div className="mb-10 flex w-full flex-col items-start justify-center gap-5 md:flex-row md:items-center md:justify-start">
         <h2 className="text-[28px] font-medium text-white md:text-[32px]">
@@ -37,7 +37,7 @@ const Skills = () => {
         <div className="bg-primary h-[1px] w-[240px] md:w-[239px]"></div>
       </div>
 
-      <div className="flex h-[500px] w-full gap-16 md:h-[400px]">
+      <div className="flex h-auto w-full gap-16 md:h-[400px]">
         <div className="relative hidden w-2/5 sm:block">
           <span className="absolute top-6 left-8">
             <Dot5X5 />
@@ -56,7 +56,7 @@ const Skills = () => {
           </span>
         </div>
 
-        <div className="text-gray flex flex-row flex-wrap content-start gap-10 sm:pr-0 sm:pl-0 sm:text-[14px] md:ml-17 md:w-3/5 md:justify-end">
+        <div className="flex w-3/5 flex-wrap lg:justify-end gap-5 md:h-[250px] lg:h-[300px]">
           {skillsData.map((skill, index) => (
             <SkillCard
               key={index}
