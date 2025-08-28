@@ -10,8 +10,8 @@ const Projects = () => {
       className="relative mx-auto w-full scroll-mt-20 p-4 pt-[60px] sm:flex sm:max-w-[1200px] sm:flex-col sm:items-center sm:px-0"
     >
       {/* Title of the projects section */}
-      <div className='flex flex-col gap-5'>
-        <div className="flex items-center justify-between">
+      <div className='flex flex-col gap-5 md:gap-9 md:w-full'>
+        <div className="flex items-center justify-between ">
           <h2 className="text-[28px] font-medium text-white md:text-[32px]">
             <span className="text-primary">#</span>projects
           </h2>
