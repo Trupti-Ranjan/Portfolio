@@ -62,7 +62,7 @@ const HeroSection = () => {
         <div className="border-gray relative border p-8">
           <img src={doublequoats} alt="" className="absolute -top-4 left-3" />
           <p className="text-xl text-white sm:text-2xl font-medium">
-            With great power comes great electricity bill
+            Code is like humor. When you have to explain it, it’s bad.
           </p>
           <img
             src={doublequoats}

@@ -38,7 +38,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="mt-6 text-gray text-center">
-          <p className='relative'><span className='font-medium absolute top-0.5 -left-4'>©</span> Copyright {new Date().getFullYear()} Made by Trupti</p>
+          <p className='relative'>Made by Trupti</p>
         </div>
       </div>
     </footer>

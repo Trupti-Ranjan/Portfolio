@@ -11,7 +11,7 @@ const ProjectCard = ({
   cachedlink,
 }) => {
   return (
-    <div className="border-gray w-[360px] border md:w-[332px]">
+    <div className="border-gray w-full border md:w-[332px]">
       <img src={img} alt="" className="w-full object-cover" />
       <p className="text-gray border-gray border-y px-2 py-2 text-[12px] font-normal md:text-lg">
         {techStack}
