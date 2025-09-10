@@ -1,14 +1,12 @@
-import React from 'react';
-import { useSmoothScroll } from './hooks/useSmoothScroll';
-import AllComponents from './components/AllComponents';
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routes/AppRoutes";
 
-const App = () => {
-  useSmoothScroll();
+function App() {
   return (
-    <>
-      <AllComponents />
-    </>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
