@@ -1,7 +1,9 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
 import Square from '../ui/Square';
-import projectsData from '../../data/data.js'; // adjust path as needed
+import projectsData from '../../data/data.js';
+import { Link } from "react-router-dom";
+
 
 const Projects = () => {
   return (
@@ -15,9 +17,9 @@ const Projects = () => {
           <h2 className="text-[28px] font-medium text-white md:text-[32px]">
             <span className="text-primary">#</span>projects
           </h2>
-          <a href="#" className="text-white">
+          <Link to={"/wip"} className="text-white">
             View all ~~{'>'}
-          </a>
+          </Link>
         </div>
         <div className='h-[2px] w-3/5 bg-primary '></div>
       </div>

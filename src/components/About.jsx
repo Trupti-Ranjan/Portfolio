@@ -1,10 +1,15 @@
 import React from 'react';
 import aboutme from '../assets/images/aboutme.svg';
 import Dot5X5 from './ui/Dot5X5';
+import { Link } from "react-router-dom";
+
 
 const About = () => {
   return (
-    <section id='about' className="scroll-mt-38 mx-auto mb-16 p-4 sm:flex sm:max-w-[1200px] sm:flex-col sm:px-0">
+    <section
+      id="about"
+      className="mx-auto mb-16 scroll-mt-38 p-4 sm:flex sm:max-w-[1200px] sm:flex-col sm:px-0"
+    >
       {/* Title Section of About */}
       <div className="mb-10 flex w-full flex-col items-start justify-center gap-5 md:flex-row md:items-center md:justify-start">
         <h2 className="text-[28px] text-white md:text-[32px]">
@@ -52,9 +57,11 @@ const About = () => {
             .
           </p>
 
-          <button className="border-primary mt-10 border px-4 py-2 font-medium text-white hover:cursor-pointer">
-            Read More -{'>'}
-          </button>
+          <Link to={"/wip"}>
+            <button className="border-primary mt-10 border px-4 py-2 font-medium text-white hover:cursor-pointer">
+              Read More -{'>'}
+            </button>
+          </Link>
         </div>
         <div className="-top-28 right-1 md:absolute">
           <img

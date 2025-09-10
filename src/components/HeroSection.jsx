@@ -7,12 +7,15 @@ import BoxLogoAnimated from './ui/BoxLogoAnimated';
 
 const HeroSection = () => {
   return (
-    <section id='home' className="relative mx-auto min-h-screen  p-4 pt-[60px] sm:flex sm:max-w-[1200px] sm:flex-col sm:items-center sm:px-0">
+    <section
+      id="home"
+      className="relative mx-auto min-h-screen p-4 pt-[60px] sm:flex sm:max-w-[1200px] sm:flex-col sm:items-center sm:px-0"
+    >
       {/* Main hero container */}
       <div className="mt-20 flex w-full flex-col justify-center sm:flex-row sm:items-center sm:justify-between">
         {/* Left Section */}
         <div className="flex flex-col justify-between gap-6 sm:h-[230px] sm:w-[540px]">
-          <h1 className="text-3xl text-white sm:text-[32px] font-semibold">
+          <h1 className="text-3xl font-semibold text-white sm:text-[32px]">
             Trupti is a <span className="text-primary">web designer</span> and{' '}
             <span className="text-primary">front-end developer</span>
           </h1>
@@ -20,11 +23,14 @@ const HeroSection = () => {
             He crafts responsive websites where technologies meet creativity
           </p>
 
-          <a href='#contact' className="group border-gray relative flex h-[3.5em] cursor-pointer items-center justify-start self-start overflow-hidden border px-4 pr-14 text-xs font-semibold tracking-wider text-white uppercase transition-all duration-[900ms] ease-[cubic-bezier(0.23,1,0.32,1)] hover:text-black">
+          <a
+            href="#contact"
+            className="group border-gray relative flex h-[3.5em] cursor-pointer items-center justify-start self-start overflow-hidden border px-4 pr-14 text-xs font-semibold tracking-wider text-white uppercase transition-all duration-[900ms] ease-[cubic-bezier(0.23,1,0.32,1)] md:hover:text-black"
+          >
             <p className="hover-target z-10 px-4 text-[16px] font-medium">
               Contact me!!
             </p>
-            <div className="bg-primary absolute right-[0.1em] flex h-[3em] w-[3em] items-center justify-center transition-all duration-[900ms] ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:w-[calc(100%-0.3em)] group-active:scale-90"></div>
+            <div className="bg-primary absolute right-[0.1em] flex h-[3em] w-[3em] items-center justify-center transition-all duration-[900ms] md:ease-[cubic-bezier(0.23,1,0.32,1)] md:group-hover:w-[calc(100%-0.3em)] group-active:scale-90"></div>
           </a>
         </div>
 
@@ -48,8 +54,8 @@ const HeroSection = () => {
 
           {/* Bottom Info Box */}
           <div className="border-gray absolute bottom-3 left-2 flex w-[96%] max-w-[420px] items-center gap-3 border p-2 sm:-bottom-[43px] sm:left-[17px] sm:w-[418px]">
-            <div className="bg-primary h-4 w-4"></div>
-            <p className="text-gray text-[14px] sm:text-[16px] font-medium">
+            <div className="bg-primary -p-2 hover-target h-4 w-4 transition duration-300 md:hover:bg-[#c778dd]/65 md:hover:text-[#c778dd] md:hover:shadow-[0_0_20px_6px_#c778dd]"></div>
+            <p className="text-gray text-[14px] font-medium sm:text-[16px]">
               Currently working on{' '}
               <span className="font-semibold text-white">Portfolio</span>
             </p>
@@ -61,7 +67,7 @@ const HeroSection = () => {
       <div className="mt-20 flex flex-col items-end justify-center sm:mt-32">
         <div className="border-gray relative border p-8">
           <img src={doublequoats} alt="" className="absolute -top-4 left-3" />
-          <p className="text-xl text-white sm:text-2xl font-medium">
+          <p className="text-xl font-medium text-white sm:text-2xl">
             Code is like humor. When you have to explain it, it’s bad.
           </p>
           <img
@@ -72,12 +78,14 @@ const HeroSection = () => {
         </div>
 
         <div className="border-gray relative border border-t-0 p-4">
-          <p className="text-xl text-white sm:text-2xl font-medium">- Dr. Who</p>
+          <p className="text-xl font-medium text-white sm:text-2xl">
+            - Dr. Who
+          </p>
         </div>
 
         {/* Decorative: Square */}
       </div>
-      <div className="absolute -right-44 top-[680px] ">
+      <div className="absolute top-[680px] -right-44">
         <Square width={91} />
       </div>
     </section>

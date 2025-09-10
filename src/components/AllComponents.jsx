@@ -12,7 +12,7 @@ const AllComponents = () => {
 
   return (
     <div className="bg-background font-fira hide-scrollbar relative min-h-screen w-full overflow-x-hidden">
-      {/* <Cursor /> */}
+      <Cursor />
       <Navbar />
       <main className="relative z-10 mx-auto max-w-[1300px] sm:px-6 lg:px-8">
         <HeroSection />
